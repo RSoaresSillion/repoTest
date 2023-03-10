@@ -4,6 +4,7 @@ on: push
 env: 
   TOKEN: glptt-02c74986f54c55a9e11e51aee25ea1d660cda9d9
   REF_NAME: main
+  PROJECT_ID: 44217288
 jobs:
   curl:
     runs-on: ubuntu-latest
@@ -12,4 +13,4 @@ jobs:
     - name: curl
       uses: wei/curl@v1
       with:
-        args: curl -X POST \ --fail \ -F token=$TOKEN \ -F ref=$REF_NAME \ https://gitlab.com/api/v4/projects/44217288/trigger/pipeline
+        args: curl --request POST \ --form token=$TOKEN \ --form ref=$REF_NAME \ "https://gitlab.example.com/api/v4/projects/$PROJECT_ID/trigger/pipeline"
