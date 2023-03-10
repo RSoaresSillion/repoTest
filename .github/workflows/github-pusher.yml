@@ -6,11 +6,14 @@ env:
   REF_NAME: main
   PROJECT_ID: 44217288
 jobs:
-  curl:
+  deployment:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - name: curl
-      uses: wei/curl@v1
+    - name: Trigger gitlab Action 
+      uses: fjogeleit/http-request-action@v1.14.0
       with:
-        args: curl --request POST \ --form token=glptt-02c74986f54c55a9e11e51aee25ea1d660cda9d9 \ --form ref=main \ "https://gitlab.com/api/v4/projects/44217288/trigger/pipeline"
+        url: 'https://gitlab.com/api/v4/projects/44217288/trigger/pipeline'
+        method: 'POST'
+        token: glptt-02c74986f54c55a9e11e51aee25ea1d660cda9d9
+        ref: main
+      
