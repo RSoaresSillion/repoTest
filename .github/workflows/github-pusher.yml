@@ -3,7 +3,7 @@ run-name: Pushing to gitlab Repo
 on: push
 env: 
   TOKEN: glptt-02c74986f54c55a9e11e51aee25ea1d660cda9d9
-  REF_NAME: master
+  REF_NAME: main
 jobs:
   curl:
     runs-on: ubuntu-latest
